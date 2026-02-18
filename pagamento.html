@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pagamento</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background: #2f80ed;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #1c60c7;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.success {
+  display: none;
+  text-align: center;
+  color: green;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Pagamento</h2>
+
+  <form id="paymentForm">
+
+    <input type="text" placeholder="Nome completo" required>
+    <input type="email" placeholder="Email" required>
+
+    <input type="text" placeholder="Número do cartão" maxlength="19" required>
+    <input type="text" placeholder="MM/AA" required>
+    <input type="text" placeholder="CVV" maxlength="4" required>
+
+    <div class="total">Total: R$ 49,90</div>
+
+    <button type="submit">Pagar agora</button>
+
+  </form>
+
+  <div class="success" id="successMsg">
+    ✅ Pagamento enviado!
+  </div>
+</div>
+
+<script>
+document.getElementById("paymentForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  // EXEMPLO: enviar para seu backend
+  /*
+  await fetch("/api/pagar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      valor: 49.90
+    })
+  });
+  */
+
+  document.getElementById("successMsg").style.display = "block";
+});
+</script>
+
+</body>
+</html>
+
